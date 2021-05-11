@@ -83,3 +83,86 @@ test it using node.
 2.  node typescriptExamples.js
 
 */
+
+//Class example
+class Programmer {
+    name: string;
+    constructor(firstName: string, lastName: string) {
+        this.name = `${firstName} ${lastName}`;
+    }
+    greet() {
+        return `Hello, ${this.name}`;
+    }
+}
+
+let Nathan = new Programmer("Nathan", "Gearke");
+
+// Sample of using extend to denote child and parent class
+class Panthera {
+    roar: string;
+    constructor(currentRoar: string){
+        this.roar = currentRoar;
+    }
+}
+class Tiger extends Panthera {
+    stripes: boolean = true;
+}
+
+let tigger = new Tiger("Whoo hoo!");
+
+// Interfaces
+/*
+interface interfaceName {
+    someProperty: number;
+}
+
+class className implements interfaceName {
+    constructor(x: number) {
+        this.someProperty = x;
+    }
+}
+*/
+
+// Example Interface
+interface Panthera {
+    roar: string;
+}
+
+class Cheetah implements Panthera {
+    roar: string;
+
+    constructor(){
+        this.roar = "Roar!"
+    }
+}
+
+class Lion implements Panthera {
+    roar: string;
+
+    constructor(){
+        this.roar = "ROAR!"
+    }
+}
+
+function pantheraSounds(panthera: Panthera): void {
+    console.log(`Panthera says ${panthera.roar}`)
+}
+
+let cheetah = new Cheetah();
+let lion = new Lion();
+
+pantheraSounds(cheetah);
+pantheraSounds(lion);
+
+/*
+Importing and Exporting
+
+Import: 
+import { className } from 'relativefilepath';
+let newClass = new className;
+
+Export: 
+export class className {
+   // properties and methods
+}
+*/
